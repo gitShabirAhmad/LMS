@@ -195,3 +195,26 @@ def enrollment(request):
 
     return render(request,'lms_app/enrollment.html',context)
 
+
+
+def student(request):
+    users = Account.objects.all()
+    lenth = users.__len__()
+
+    # search functionality
+    name = request.GET.get('search')
+    if name != '' and name is not None:
+        users = users.filter(name__icontains=name)
+
+    # Pagination
+    paginator = Paginator(users,10)
+    page = request.GET.get('page')
+    users = paginator.get_page(page)
+
+    return render(request,'lms_app/student.html',{"users":users,"lenth":lenth})
+
+
+
+
+def about(request):
+    return render(request,'lms_app/about.html')   

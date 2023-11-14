@@ -5,3 +5,4 @@ let scroller = document.getElementsByClassName('containerSection')
 toggleButton.addEventListener('click',() => {
     navLinks.classList.toggle('active')
 })
+

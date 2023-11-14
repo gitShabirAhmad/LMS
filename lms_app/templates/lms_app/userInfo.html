@@ -18,9 +18,15 @@
                 <p>{{user_obj.email}}</p>
             </div>
             <div class="sectionTwo">
-                <h1>{{user_obj.id}}</h1>
-                <h1>{{user_obj.address}}</h1>
-                <p>Last login on <b>{{user.last_login|date:"d M Y"}}</b></p>
+                <div class="head">
+                    <h2>Student Info</h2>
+
+                </div>
+                <br>
+                <p><b>ID </b> BCS00-{{user_obj.id}}</p>
+                <p><b>Address </b>{{user_obj.address}}</p>
+                <p><b>Date of birth </b>{{user_obj.date_of_birth|date:"d M Y"}}</p>
+                <p><b> Last login </b>{{user_obj.last_login|date:"d M Y"}}</p>
             </div>
         </div>
     </div>

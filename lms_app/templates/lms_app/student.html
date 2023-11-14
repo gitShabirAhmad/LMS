@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="{% static 'css/classes.css' %}">
+</head>
+<body>
+    {% include 'partials/_nav.html' %}
+
+
+    <div class="container">
+
+        <div class="clases">
+            <h1>Students</h1>
+            <div class="first">
+                
+                <form method="GET">
+                    <input type="search" name="search" placeholder="Search by name">
+                    <button type="submit">Search</button>
+                </form>
+                {% if request.user.is_superuser %}
+                <a href="{% url 'register' %}" id="add">Register</a>
+                {% endif %}
+            </div>
+            
+            <div class="Class">
+                {% for item in users %}    
+                    <a href="{% url 'userInfo' item.id %}" id="class">{{item.name}} | {{item.address}}</a>
+                {% endfor %}
+                <p style="margin: 10px 0px 0px 12px; opacity:85%;">{{lenth}} students</p>
+
+                
+            </div>
+            
+            
+            <div class="paginator">
+                <div class="one">
+
+                    {% if users.has_previous %}
+                    <a href="?page=1">First</a>
+                    <a href="?page={{ users.previous_page_number }}">Previous</a>
+                    {% endif %}
+                </div>
+                
+                <p> Page {{ users.number }} of {{ users.paginator.num_pages }}</p>
+                <div class="two">
+                    {% if users.has_next %}
+                    <a href="?page={{ users.next_page_number }}">Next</a>
+                    <a href="?page={{ users.paginator.num_pages }}">Last</a>
+                    {% endif %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+</body>
+</html>

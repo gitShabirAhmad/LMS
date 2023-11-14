@@ -10,7 +10,7 @@ from django.contrib.auth import get_user_model
 # Create your models here.
 
 class AccountManager(BaseUserManager):
-    def create_user(self,email,name,password,address):
+    def create_user(self,email,name,password,address,date_of_birth):
         if not email:
             raise ValidationError("Email is required")
         if not name:
@@ -18,7 +18,7 @@ class AccountManager(BaseUserManager):
         if not password:
             raise ValidationError("password is required")
         
-        user = self.model(email = email,name=name,address=address)
+        user = self.model(email = email,name=name,address=address,date_of_birth=date_of_birth)
         user.is_active = True
         user.is_staff = True
         user.set_password(password)
@@ -41,9 +41,7 @@ class Account(AbstractBaseUser,PermissionsMixin):
     email = models.EmailField(unique=True)
     date_of_birth = models.DateTimeField(null=True,blank=True)
     image = models.ImageField(upload_to="profile",null=True,blank=True,default='profile/pro.jpg')
-    address = models.CharField(max_length=50)
-
-
+    address = models.CharField(max_length=50,default='Kabul')
 
 
     is_staff = True

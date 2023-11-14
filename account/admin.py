@@ -12,7 +12,7 @@ class AccountAdmin(UserAdmin):
     # fieldsets to display the admin details
     fieldsets = (
         ("Auth", {"fields": ("email", "password")}),
-        ("Personal info", {"fields": ('name','image','address')}),
+        ("Personal info", {"fields": ('name','image','address','date_of_birth')}),
         (
             ("Permissions"),
             {
@@ -36,7 +36,7 @@ class AccountAdmin(UserAdmin):
             "Add User",
             {
                 "classes": ("wide",),
-                "fields": ("email", "password1", "password2",'address'),
+                "fields": ("email", "password1", "password2",'address','date_of_birth'),
             },
         ),
     )

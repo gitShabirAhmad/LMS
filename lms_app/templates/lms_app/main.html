@@ -13,17 +13,6 @@
     <!-- navbar from partials -->
     {% include 'partials/_nav.html' %}
 
-
-    <div class="message">
-        {% if error == 'no' %}
-        <p style="background-color: rgb(58, 159, 0); top: 160px; " id="p">Successfully Saved</p>
-        {% endif %}
-        {% if error == 'yes' %}
-        <p style="background-color: red; top: 160px;" id="p" class="p_shake">Invalid value</p>
-        {% endif %}
-    </div>  
-
-
             <!-- Main page start -->
             <div class="container">
                 <div class="main_page" id="home">
@@ -36,5 +25,8 @@
             </div>
             <!-- Main page End -->
 
+            
+
+            <script src="{% static 'js/main.js' %}"></script>
         </body>
         </html>

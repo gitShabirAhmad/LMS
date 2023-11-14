@@ -1,15 +1,16 @@
 .container{
     display: flex;
-    height: 650px;
+    height: 600px;
     justify-content: center;
     align-items: center;
 }
 .info{
     background-color: aliceblue;
     display: flex;
+    justify-content: left;
     padding: 7px;
-    width: 700px;    
-    height: 450px;    
+    width: 640px;    
+    height: 370px;    
     border-radius: 10px;
     flex-wrap: wrap;
 }
@@ -17,16 +18,55 @@
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
-    margin-right: 40px;
+    margin-right: 15px;
 }
 .sectionOne img{
     width: 200px;
     height: 200px;
     border-radius: 50%;
+    border: 3px solid rgb(0, 117, 227);
 }
 .sectionOne h1,p{
     text-align: center;
 }
 .sectionOne h1{
     margin: 20px 0px 0px 0px;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.head h2{
+    margin: 7px 5px;
+}
+
+.sectionTwo p{
+    padding: 5px 0px 0px 0px;
+    border-radius: 5px;
+    margin: 5px 0px;
+    width: 380px;
+    text-align: left;
+}
+
+@media (max-width: 700px){
+    .info{
+        height: 580px;
+        width: 300px;
+        justify-content: center;
+        margin: 50px 0px;
+    }
+    .sectionOne{
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    .sectionTwo{
+        width: 280px;
+        margin: 0px;
+    }
+    .sectionTwo p{
+        width: 230px;
+    }
 }

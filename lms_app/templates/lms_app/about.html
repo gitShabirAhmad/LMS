@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <title>About</title>
+</head>
+<body>
+    {% include 'partials/_nav.html' %}
+
+
+
+    
+        <!-- Footer Start -->
+        <div class="footer" id="contact">
+            <div class="section1">
+                <div class="logo">
+                    <img src="{% static 'images/lms_color.png' %}" id="img">
+                    <h2>Learning Management System</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia voluptate quo accusantium libero id fugiat impedit in iure voluptas, perferendis placeat explicabo labore ipsa hic repellendus laborum? Deserunt, aspernatur veritatis!</p> 
+            </div>
+            <div class="menu">
+                <h2>Social Media</h2>
+                <P>Facebook</P>
+                <P>Instagram</P>
+                <P>WhatsApp</P>
+                <P>Telegram</P>
+                <P>Youtube</P>
+            </div>
+            <div class="menu">
+                <h2>Quick Menu</h2>
+                <P>Classes</P>
+                <P>Enrollment</P>
+                <P>Register</P>
+                <P>Students</P>
+                <P>Contact</P>
+            </div>
+            <div class="menu">
+                <h2>Customer Service</h2>
+                <P>Privacy Policy</P>
+                <P>Terms & Conditions</P>
+            </div>
+        </div>
+        <div class="end">
+            <a href="##" id="a">Do Not Sell My Personal Information</a>
+            <p id="p">Copyright &copy; 2023 Shabir Ahmad Mayar. All Rights Reserved.</p>
+        </div>
+        <!-- Footer End -->
+</body>
+</html>
