@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Management System</title>
+    <link rel="website icon" type="png" href="{% static '/images/lms.jpg' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <!-- navbar from partials -->
+    {% include 'partials/_nav.html' %}
+
+
+    <div class="message">
+        {% if error == 'no' %}
+        <p style="background-color: rgb(58, 159, 0); top: 160px; " id="p">Successfully Saved</p>
+        {% endif %}
+        {% if error == 'yes' %}
+        <p style="background-color: red; top: 160px;" id="p" class="p_shake">Invalid value</p>
+        {% endif %}
+    </div>  
+
+
+            <!-- Main page start -->
+            <div class="container">
+                <div class="main_page" id="home">
+                    <h1>Learning Management System</h1>
+                    <h2>walk with us to brightness feature!</h2>
+                    {% if not user.is_authenticated %}
+                    <a href="{% url 'login' %}">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+            <!-- Main page End -->
+
+        </body>
+        </html>

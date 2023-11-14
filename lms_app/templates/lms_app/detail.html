@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Class info</title>     
+        <link rel="stylesheet" href="{% static 'css/classes.css' %}">    
+    </head>
+    <body>
+        {% include 'partials/_nav.html' %}
+        <div id="container">
+            <div id="info">
+                <div class="header">
+                    <h2>Class Info</h2>
+                    <div class="btn">
+                        {% if request.user.is_superuser %}
+                        <a href="{% url 'update' class_id.id %}" id="update">Update</a>
+                        <a href="{% url 'delete' class_id.id %}" id="delete">Delete</a>
+                        {% endif %}
+                    </div>    
+                </div>
+                <hr>
+                <div id="clsInfo">
+                    <p><b>Class</b>  {{class_id}}</p>
+                    <p><b>Time</b>  {{class_id.time}}</p>
+                    <p><b>Started on</b>  {{class_id.started_date|date:"Y-m-d"}}</p>
+                    <p><b>ID</b>  00-{{class_id.id}}</p>    
+                </div> 
+                <br>
+                {% if request.user.is_superuser %}
+                <div class="title">            
+                    <h2>Enrolled students</h2>
+                </div>
+                {% endif %}
+                <hr>
+                <div class="students">
+                    {% for item in class_obj %}
+
+                              <div class="users">
+
+                                    <div class="information">
+                                        <img src="{{ item.image.url }}" id="user_pic">
+                                        <p>{{item.name}}</p>
+                                        <a href="#">{{item}}</a>
+                                    </div>
+                                        <a href="{% url 'userInfo' item.id %}" id="edit">View</a>
+                              </div>
+                            
+                    {% endfor %}    
+                </div>
+            </div>    
+
+    </div>
+
+</body>
+</html>

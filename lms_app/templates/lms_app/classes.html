@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/classes.css' %}">
+    <title>Classes</title>
+</head>
+<body>
+    {% include 'partials/_nav.html' %}
+    <div class="container">
+
+        <div class="clases">
+            <h1>Classes</h1>
+            <div class="first">
+                
+                <form method="GET">
+                    <input type="search" name="search" placeholder="search">
+                    <button type="submit">Search</button>
+                </form>
+                {% if request.user.is_superuser %}
+                <a href="{% url 'create' %}" id="add">Create</a>
+                {% endif %}
+            </div>
+            
+            <div class="Class">
+                {% for item in course_classes %}    
+                    <a href="{% url 'detail' item.id %}" id="class">{{item.name}} | {{item.started_date|date:"d m Y"}}</a>
+                {% endfor %}
+                <p style="margin: 10px 0px 0px 12px; opacity:85%;">All {{len}} Classes</p>
+
+                
+            </div>
+            
+            
+            <div class="paginator">
+                <div class="one">
+
+                    {% if course_classes.has_previous %}
+                    <a href="?page=1">First</a>
+                    <a href="?page={{ course_classes.previous_page_number }}">Previous</a>
+                    {% endif %}
+                </div>
+                
+                <p> Page {{ course_classes.number }} of {{ course_classes.paginator.num_pages }}</p>
+                <div class="two">
+                    {% if course_classes.has_next %}
+                    <a href="?page={{ course_classes.next_page_number }}">Next</a>
+                    <a href="?page={{ course_classes.paginator.num_pages }}">Last</a>
+                    {% endif %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>

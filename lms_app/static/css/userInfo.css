@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    height: 650px;
+    justify-content: center;
+    align-items: center;
+}
+.info{
+    background-color: aliceblue;
+    display: flex;
+    padding: 7px;
+    width: 700px;    
+    height: 450px;    
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+.sectionOne{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 40px;
+}
+.sectionOne img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.sectionOne h1,p{
+    text-align: center;
+}
+.sectionOne h1{
+    margin: 20px 0px 0px 0px;
+}

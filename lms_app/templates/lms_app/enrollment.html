@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/user.css' %}">
+    <title>Enrolment | LMS</title>
+</head>
+<body>
+    {% include 'partials/_nav.html' %}
+<div id="container">
+
+
+
+    <div class="form" >
+        <form method="POST" style="margin-top: 40px;">
+            
+            <div class="message">
+                {% if error == 'no' %}
+                <p style="background-color: rgb(58, 159, 0); " id="p">Successfully enrolled</p>
+                {% endif %}
+                {% if error == 'yes' %}
+                <p style="background-color: red;" id="p" class="p_shake">Name and email not much</p>
+                {% endif %}
+            </div>
+            <h1 style="margin-top: 40px;">Enrolment</h1>
+
+            {% csrf_token %}
+            
+            <p style="margin: 0px; font-size: 13px;">Choose a class from below box</p>
+            <select name="clas" id="">
+                {% for item in class_object %}
+                <option value="{{item.name}}">{{item.name}}</option>
+                {% endfor %}
+            </select>
+            <hr>
+            <p style="margin: 0px; font-size: 13px;">Choose a name</p>
+            <select name="user" id="">
+                {% for item in account %}
+                <option value="{{item.name}}">{{item.name}}</option>
+                {% endfor %}
+            </select>
+            <p style="margin: 0px; font-size: 13px;">Choose an email</p>
+            <select name="email" id="">
+                {% for item in account %}
+                <option value="{{item.email}}">{{item}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Enrol" id="submit">
+        </form>
+    </div>
+</div>    
+</body>
+</html>

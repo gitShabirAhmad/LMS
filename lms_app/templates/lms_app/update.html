@@ -1,0 +1,35 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/classes.css' %}">
+    <title>LMS | Update</title>
+</head>
+<body>
+    {% include 'partials/_nav.html' %}
+
+
+    <div class="login_container">
+        <div class="login_form">
+            <h2 style="text-align: center; margin: 10px 0px 10px 0px;">Update</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <label>Name</label>
+                <input type="text"  name="name" value="{{clas.name}}">
+                <label>Time</label>
+                <input type="text"  name="time" value="{{clas.time}}">
+                <label>Date | <label style="font-size: 12px;">yyyy-mm-dd</label></label>
+                <input type="text"  name="date" value="{{clas.started_date}}">
+        
+                <input type="submit" value="Save">
+            </form> 
+            
+        </div>
+        
+    </div>
+    
+</body>
+</html>

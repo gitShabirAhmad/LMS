@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/classes.css' %}">
+    <title>LMS | Login</title>
+</head>
+<body>
+    {% include 'partials/_nav.html' %}
+    
+    <div class="login_container">
+        <div class="login_form">
+            
+
+
+            <div class="message">
+                {% if error == 'no' %}
+                <p style="background-color: rgb(58, 159, 0); " id="p">Successfully Saved</p>
+                {% endif %}
+                {% if error == 'yes' %}
+                <p style="background-color: red;" id="p" class="p_shake">Invalid user</p>
+                {% endif %}
+            </div>
+
+
+            <h2 style="text-align: center;">Login</h2>
+            <form method="POST" >
+                {% csrf_token %}
+                <label style="top: 250px;">Username</label>
+                <input type="text"  name="usrnam">
+                <label>Password</label>
+                <input type="password"  name="paswrd" style="background-color: #fff;">
+                
+                <input type="submit" value="Login" >
+            </form> 
+             <a href="{% url 'register' %}">Create account</a>
+            
+        </div>
+        
+    </div>
+    
+</body>
+</html>

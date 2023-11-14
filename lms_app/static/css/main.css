@@ -1,0 +1,46 @@
+.main_page{
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);    
+}
+.main_page h1{
+    font-family: ubuntu;
+    font-size: 45px;
+    font-weight: 400;
+    margin: 10px;
+}
+.main_page h2{
+    font-family: ubuntu;
+    font-weight: 400;
+    margin: 0px 0px 30px 0px;
+}
+.main_page a{
+    padding: 8px 35px;
+    background: none;
+    border: 1px solid #5aa9e6;
+    border-radius: 50px;
+    color: #5aa9e6;
+    text-decoration: none;
+    font-family: ubuntu;     
+}
+.main_page a:hover{
+    background: #5aa9e6;
+    border: 1px solid #5aa9e6;
+    color: rgb(255, 255, 255);
+}
+/* Main page End */
+
+@media (max-width: 638px){
+    
+.main_page h1{
+    font-size: 25px;
+    text-align: center;
+}
+.main_page h2{
+    text-align: center;
+
+}
+}
